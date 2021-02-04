@@ -41,8 +41,7 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Power(a, b), Is.EqualTo(result));
         }
         [TestCase(2, 7, 14)]
-        [TestCase(3, 7, 21)]
-        [TestCase(2, 6, 12)]
+        
 
         public void GangeTo_Positive_Tal(double a, double b, double result)
         {
