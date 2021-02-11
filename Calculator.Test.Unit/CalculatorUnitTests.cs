@@ -47,6 +47,10 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Multiply(a, b), Is.EqualTo(result));
         }
-
+        [TestCase(2,-5,-10)]
+        public void GangePositivTalmedNegativTal(double a, double b, double result )
+        {
+            Assert.That(uut.Multiply(a,b), Is.EqualTo(result));
+        }
     }
 }
