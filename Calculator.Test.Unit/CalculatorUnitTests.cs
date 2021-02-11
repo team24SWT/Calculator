@@ -28,7 +28,7 @@ namespace Calculator.Test.Unit
         }
      
         [TestCase(-5, 10, -15)]
-        [TestCase(5, -1, 6)]
+        [TestCase(5, -1, 7)]
         [TestCase(5, -10, 15)]  
         public void Substract_PositiveTal_Fra_NegativeTal(double a, double b, double result)
         {
