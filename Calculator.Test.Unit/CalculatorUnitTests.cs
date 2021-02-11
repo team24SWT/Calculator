@@ -52,5 +52,22 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Multiply(a,b), Is.EqualTo(result));
         }
+
+        [TestCase(2.5,0,0)]
+        
+        public void DevideMedNull(decimal a, decimal b, decimal result)
+        {
+            var exp = Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
+            StringAssert.Contains("Fejl", exp.Message);
+            
+        }
+
+        [TestCase(45,9, 5)]
+        [TestCase(144,12,12)]
+        public void DevideToTal(decimal a, decimal b, decimal result)
+        {
+            Assert.That(uut.Divide(a, b), Is.EqualTo(result));
+        }
+            
     }
 }

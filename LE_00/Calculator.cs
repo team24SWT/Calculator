@@ -25,6 +25,23 @@ namespace LE_00
             return Math.Pow(x, exp);
         }
 
+        public decimal Divide(decimal a, decimal b)
+        {
+            try
+            {
+                return a / b;
+            }
+            catch(Exception e)
+            {
+                throw new DivideByZeroException("Fejl");
+            }
+
+
+
+
+        }
+
+        
     }
 
 }
