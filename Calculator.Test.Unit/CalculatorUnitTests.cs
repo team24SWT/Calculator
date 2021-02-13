@@ -55,7 +55,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(2.5,0,0)]
         
-        public void DevideMedNull(decimal a, decimal b, decimal result)
+        public void DevideMedNull(decimal a, decimal b, decimal result)   
         {
             var exp = Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
             StringAssert.Contains("Fejl", exp.Message);
@@ -68,6 +68,37 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Divide(a, b), Is.EqualTo(result));
         }
+          
+        [TestCase(5, 5, 5, 2, 2500)]
+        [TestCase(20, 0, 15, 3, 27000000)]
+        public void AddAddMultiplyPower( double a, double b, double c, double d, double result)
+        {
             
+            uut.Add(a);
+            uut.Add(b);
+            uut.Multiply(c);
+            uut.Power(d);
+            Assert.AreEqual(result, uut.Accumulator);
+        }
+        [TestCase(10, 2, 2, 2, 128)]
+        public void SubstactAddPowerMultiply(double a, double b, double c, double d, double result)
+        {
+            uut.Substract(a);
+            uut.Add(b);
+            uut.Power(c);
+            uut.Multiply(d);
+            Assert.AreEqual(result, uut.Accumulator);
+        }
+        [TestCase(100, 6, 50, 50)]
+        [TestCase(100000, 2, 1285, 1285)]
+        [TestCase(7, 3, 2350, 2350)]
+        public void ClearTest(double a, double b, double c, double result)
+        {
+            uut.Add(a);
+            uut.Power(b);
+            uut.Clear();
+            uut.Add(c);
+            Assert.AreEqual(result, uut.Accumulator);
+        }
     }
 }
