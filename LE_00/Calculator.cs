@@ -10,7 +10,6 @@ namespace LE_00
 
         public double Add(double a, double b)
         {
-
             Accumulator = a + b;
             return Accumulator;
         }
@@ -30,7 +29,20 @@ namespace LE_00
             return Accumulator;
         }
 
-       
+        public double Divide(double dividend, double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException("Der kan ikke divideres med 0");
+            }
+            else
+            {
+                Accumulator = dividend / divisor;
+                return Accumulator;
+            }
+
+        }
+
         public double Add(double a)
         {
             Accumulator += a;
@@ -54,19 +66,19 @@ namespace LE_00
             return Accumulator;
         }
 
-        public decimal Divide(decimal a, decimal b)
+        public double Divide(double divisor)
         {
-            try
+            if (divisor == 0)
             {
-                Accumulator = (double)a / (double)b;
-                return (decimal)Accumulator;
+                throw new DivideByZeroException("Der kan ikke divideres med 0");
             }
-            catch (Exception)
+            else
             {
-                throw new DivideByZeroException("Fejl");
+                Accumulator /= divisor;
+                return Accumulator;
             }
-
         }
+
 
         public double Accumulator { get; private set; }
 
